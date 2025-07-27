@@ -20,7 +20,7 @@ namespace Presentation
             _customerService = customerService;
             _orderService = orderService;
         }
-        //[AllowAnonymous]
+
         [HttpPost]
         public async Task<IActionResult> CreateCustomer([FromBody] CreateCustomerDto dto)
         {
@@ -28,7 +28,6 @@ namespace Presentation
             return Ok(customer);
         }
 
-        //[Authorize(Roles = "User")]
         [HttpGet("{customerId}/orders")]
         public async Task<IActionResult> GetCustomersOrders(int customerId)
         {
